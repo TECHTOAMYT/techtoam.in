@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techtoam | Am Industry's Official</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body class="dark-theme">
+
+    <nav class="glass-nav">
+        <div class="logo">am industry <span class="blink">_</span></div>
+        <div class="nav-btns">
+            <a href="store.html" class="nav-btn"><i class="ri-store-2-line"></i> store</a>
+            <a href="projects.html" class="nav-btn"><i class="ri-rocket-2-line"></i> projects</a>
+            <button id="theme-toggle" class="nav-btn"><i class="ri-sun-moon-line"></i> mode</button>
+            <button id="login-btn" class="special-btn"><i class="ri-shield-keyhole-line"></i> login</button>
+        </div>
+    </nav>
+
+    <div class="background-orb orb-1"></div>
+
+    <main class="container">
+        <section class="glass-card hero">
+            <h1>ashbin p ajeesh</h1>
+            <p class="badge">
+                <i class="ri-plane-line"></i> aerospace testing • 
+                <i class="ri-cpu-line"></i> electronics • 
+                <i class="ri-terminal-box-line"></i> web development
+            </p>
+            
+            <div class="bio-content">
+                <p>
+                    I am a twenty-two-year-old engineer from Pathanamthitta, Kerala. Currently, I work at 
+                    <strong>NeST SFO Technologies</strong> in Kochi, verifying the integrity of aerospace 
+                    hardware for global aviation leaders. This platform documents my transition into industrial 
+                    web architecture through the 2026 Experiment.
+                </p>
+            </div>
+
+            <div class="status-indicator">
+                <i class="ri-pulse-line"></i> system status: operational
+            </div>
+        </section>
+
+        <div class="glass-card" style="margin-top: 30px;">
+            <h3><i class="ri-shield-check-line"></i> Security Check</h3>
+            <div class="security-box" onclick="verifyHuman()">
+                <div class="checkbox-spin"></div>
+                <span id="security-label">I am not a robot</span>
+            </div>
+        </div>
+
+        <section class="social-grid">
+            <a href="https://github.com/TECHTOAMYT" target="_blank" class="glass-card social-link">
+                <i class="ri-github-line social-icon"></i>
+                <h3>github</h3>
+                <p>source code and build logs.</p>
+            </a>
+            <a href="https://instagram.com/techtoam" target="_blank" class="glass-card social-link">
+                <i class="ri-instagram-line social-icon"></i>
+                <h3>instagram</h3>
+                <p>engineering visuals and updates.</p>
+            </a>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
