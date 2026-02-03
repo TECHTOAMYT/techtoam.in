@@ -73,3 +73,52 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
 });
 document.querySelectorAll('.glass-card').forEach(el => { el.classList.add('reveal'); observer.observe(el); });
+
+
+
+// 1. MAGNETIC CURSOR
+const dot = document.createElement('div');
+dot.className = 'cursor-dot';
+document.body.appendChild(dot);
+window.addEventListener('mousemove', (e) => {
+    dot.style.left = e.clientX + 'px';
+    dot.style.top = e.clientY + 'px';
+});
+
+// 2. SLIDE DRAWER LOGIC
+function toggleSocials() {
+    const drawer = document.getElementById('social-drawer');
+    const text = document.getElementById('slide-text');
+    drawer.classList.toggle('active');
+    text.innerText = drawer.classList.contains('active') ? 'closing...' : 'connect with me';
+}
+
+// 3. 3D TILT EFFECT
+document.querySelectorAll('.glass-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        let rect = card.getBoundingClientRect();
+        let x = (e.clientX - rect.left) / rect.width - 0.5;
+        let y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `perspective(1000px) rotateX(${y * -20}deg) rotateY(${x * 20}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0) rotateY(0)`;
+    });
+});
+
+// 4. SECURITY VERIFICATION
+function verifyHuman() {
+    const box = document.querySelector('.checkbox-spin');
+    box.style.borderTopColor = 'var(--accent-color)';
+    setTimeout(() => {
+        box.classList.add('checked');
+        document.getElementById('security-label').innerText = 'verified engineer';
+    }, 1000);
+}
+
+// 5. REVEAL OBSERVER
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+});
+document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+
