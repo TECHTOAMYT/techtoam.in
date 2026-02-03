@@ -89,3 +89,49 @@ h1, h3, .logo { text-transform: capitalize; }
 }
 .checkbox-spin.checked { background: var(--accent-color); }
 @keyframes spin { 100% { transform: rotate(360deg); } }
+
+
+:root {
+    --bg-color: #0a0a0c; --text-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.05); --accent-color: #00ffcc;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.light-theme {
+    --bg-color: #f0f2f5; --text-color: #1a1a1a;
+    --glass-bg: rgba(255, 255, 255, 0.7); --accent-color: #0055ff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'JetBrains Mono', monospace; transition: 0.3s; }
+body { background: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
+
+/* THE SLIDE DRAWER */
+.slide-container { margin-top: 25px; position: relative; overflow: hidden; border-radius: 12px; }
+.slide-btn {
+    background: var(--accent-color); color: #000; border: none;
+    padding: 12px 24px; cursor: pointer; display: flex; align-items: center;
+    gap: 10px; font-variant: small-caps; font-weight: bold; width: 100%;
+}
+.social-drawer {
+    display: flex; justify-content: space-around; background: rgba(0,0,0,0.3);
+    padding: 0; max-height: 0; transition: 0.5s ease; opacity: 0;
+}
+.social-drawer.active { padding: 15px; max-height: 100px; opacity: 1; }
+.social-drawer i { font-size: 1.5rem; color: var(--accent-color); }
+
+/* CURSOR & 3D */
+.cursor-dot { position: fixed; width: 8px; height: 8px; background: var(--accent-color); border-radius: 50%; pointer-events: none; z-index: 10000; }
+.glass-card { 
+    background: var(--glass-bg); backdrop-filter: blur(10px); 
+    border-radius: 15px; border: 1px solid var(--border-color); padding: 30px;
+    transform-style: preserve-3d; transition: 0.1s;
+}
+
+/* REVEAL ON SCROLL */
+.reveal { opacity: 0; transform: translateY(30px); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* LOGIN & SECURITY */
+.checkbox-spin { width: 20px; height: 20px; border: 2px solid var(--border-color); border-radius: 4px; }
+.checkbox-spin.checked { background: var(--accent-color); border-color: var(--accent-color); }
+
