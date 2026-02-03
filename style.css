@@ -1,0 +1,91 @@
+:root {
+    --bg-color: #0a0a0c;
+    --text-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --accent-color: #00ffcc;
+    --nav-bg: rgba(10, 10, 12, 0.8);
+}
+
+.light-theme {
+    --bg-color: #e0e5ec;
+    --text-color: #1a1a1a;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --border-color: rgba(255, 255, 255, 0.3);
+    --accent-color: #0055ff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'JetBrains Mono', monospace; transition: 0.3s ease; }
+
+body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; min-height: 100vh; }
+
+/* TYPOGRAPHY */
+h1, h3, .logo { text-transform: capitalize; }
+.badge, .status-indicator, .nav-btn, .special-btn { font-variant: small-caps; letter-spacing: 1px; }
+
+/* GLASS UI */
+.container { max-width: 800px; margin: 100px auto; padding: 20px; display: flex; flex-direction: column; gap: 30px; }
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+.glass-nav {
+    position: fixed; top: 0; width: 100%; height: 70px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 5%; background: var(--nav-bg);
+    backdrop-filter: blur(10px); z-index: 1000;
+}
+
+.nav-btn, .special-btn {
+    background: transparent; border: 1px solid var(--border-color);
+    color: var(--text-color); padding: 8px 16px; border-radius: 8px;
+    cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+}
+.special-btn { border-color: var(--accent-color); color: var(--accent-color); }
+
+.social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.social-link, .project-card { text-align: center; }
+.social-icon { font-size: 2rem; color: var(--accent-color); margin-bottom: 10px; display: block; }
+
+.background-orb {
+    position: fixed; width: 400px; height: 400px;
+    background: var(--accent-color); filter: blur(150px);
+    border-radius: 50%; z-index: -1; opacity: 0.2; top: -100px; left: -100px;
+}
+
+/* ADVANCED ANIMATIONS */
+.cursor-dot, .cursor-outline {
+    position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+    border-radius: 50%; z-index: 9999; pointer-events: none;
+}
+.cursor-dot { width: 8px; height: 8px; background: var(--text-color); }
+.cursor-outline { width: 40px; height: 40px; border: 1px solid var(--accent-color); transition: 0.1s; }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* Security Box */
+.security-box {
+    display: flex; align-items: center; gap: 15px;
+    background: rgba(0,0,0,0.2); padding: 15px;
+    border-radius: 8px; border: 1px solid var(--border-color);
+    width: fit-content; cursor: pointer;
+}
+.checkbox-spin {
+    width: 24px; height: 24px; border: 2px solid var(--border-color);
+    border-radius: 4px; position: relative;
+}
+.checkbox-spin.loading {
+    border-top-color: var(--accent-color); border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+.checkbox-spin.checked { background: var(--accent-color); }
+@keyframes spin { 100% { transform: rotate(360deg); } }
